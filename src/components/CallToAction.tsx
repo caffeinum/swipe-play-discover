@@ -41,7 +41,7 @@ const CallToAction = () => {
             </Button>
             <Button 
               className="text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 bg-transparent text-snap-yellow font-black rounded-full border-4 border-snap-yellow hover:bg-snap-yellow hover:text-snap-black transform active:scale-95 hover:scale-110 transition-all duration-300 shadow-2xl animate-swipe-right delay-500 min-h-[70px] touch-manipulation"
-              onClick={() => window.open('https://expo.dev/preview/update?message=Make+game+submissions+instant+and+show+newest+games+first%0A%0A-+Games+now+added+directly+to+main+feed+without+review+process%0A-+User&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T03%3A01%3A04.928Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=1bbee07b-36ac-4adc-a775-4e0f6d12a7de', '_blank')}
+              onClick={() => window.open('https://expo.dev/preview/update?message=Make+game+submissions+instant+and+show+newest+games+first%0A%0A-+Games+now+added+directly+to+main+feed+without+review+process%0A-+User&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T03%3A47%3A53.790Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=298a00b3-2e1e-4d4c-b1bc-4b0c91dbef66', '_blank')}
             >
               <Download className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
               GET APP
@@ -52,10 +52,7 @@ const CallToAction = () => {
           <div className="mb-8 animate-fade-in delay-500">
             <div className="flex flex-col items-center gap-4">
               <QRCode />
-              <div className="text-snap-yellow font-mono text-sm sm:text-base break-all px-4">
-                exp://xcsjhbo-caffeinum-8082.exp.direct
-              </div>
-              <p className="text-snap-white/70 text-sm">scan qr code or use url to start playing! 🎮</p>
+              <p className="text-snap-white/70 text-sm">scan qr code to start playing! 🎮</p>
             </div>
           </div>
           

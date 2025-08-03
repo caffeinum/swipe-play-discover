@@ -32,7 +32,7 @@ const Hero = () => {
                 variant="hero" 
                 size="lg" 
                 className="text-lg px-8 py-6"
-                onClick={() => window.open('https://rork-casual-game-flip.vercel.app/', '_blank')}
+                onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
               >
                 <Play className="w-5 h-5" />
                 Start Playing Now

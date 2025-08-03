@@ -34,7 +34,7 @@ const CallToAction = () => {
               variant="glass" 
               size="lg" 
               className="text-xl px-12 py-8 bg-white/20 hover:bg-white/30 border-white/30"
-              onClick={() => window.open('https://rork-casual-game-flip.vercel.app/', '_blank')}
+              onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
             >
               <Play className="w-6 h-6" />
               Start Playing Now

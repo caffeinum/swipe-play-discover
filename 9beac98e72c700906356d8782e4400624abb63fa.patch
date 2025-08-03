@@ -1,0 +1,1728 @@
+From 9beac98e72c700906356d8782e4400624abb63fa Mon Sep 17 00:00:00 2001
+From: acooldora <doraakulshina@gmail.com>
+Date: Sat, 2 Aug 2025 22:47:41 -0400
+Subject: [PATCH] =?UTF-8?q?=F0=9F=8E=A8=20Add=20Snapchat-style=20web=20lan?=
+ =?UTF-8?q?ding=20page?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+✨ Added web landing alongside mobile app:
+- Complete Snapchat yellow/white/black design
+- Mobile-first responsive optimization
+- Casual game animations (bounce, swipe, float)
+- Reduced 3-section layout
+- Gaming emojis and ghost icon
+- iOS Safari optimizations and PWA support
+- Separate web landing (index.html + src/) for marketing
+
+🎮 Perfect for driving app downloads!
+meow! ��💛
+---
+ index.html                      |  37 ++
+ snapchat-changes.bundle         | Bin 0 -> 8414 bytes
+ snapchat-changes.patch          | 835 ++++++++++++++++++++++++++++++++
+ src/components/CallToAction.tsx |  67 +++
+ src/components/Features.tsx     |  84 ++++
+ src/components/Hero.tsx         |  82 ++++
+ src/index.css                   | 181 +++++++
+ src/pages/Index.tsx             |  15 +
+ tailwind.config.ts              | 160 ++++++
+ 9 files changed, 1461 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 snapchat-changes.bundle
+ create mode 100644 snapchat-changes.patch
+ create mode 100644 src/components/CallToAction.tsx
+ create mode 100644 src/components/Features.tsx
+ create mode 100644 src/components/Hero.tsx
+ create mode 100644 src/index.css
+ create mode 100644 src/pages/Index.tsx
+ create mode 100644 tailwind.config.ts
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..fe23587
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,37 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Swipe Play Discover - Casual Gaming Hub</title>
++    <meta name="description" content="Discover your next favorite casual game. Swipe, play, and explore a curated collection of fun games." />
++    <meta name="author" content="Swipe Play Discover" />
++    <link rel="icon" type="image/png" href="/icon.png" />
++
++    <meta property="og:title" content="Swipe Play Discover - Casual Gaming Hub" />
++    <meta property="og:description" content="Discover your next favorite casual game. Swipe, play, and explore a curated collection of fun games." />
++    <meta property="og:type" content="website" />
++    <meta property="og:image" content="/icon.png" />
++
++    <meta name="twitter:card" content="summary_large_image" />
++    <meta name="twitter:site" content="@swipeplaydiscover" />
++    <meta name="twitter:image" content="/icon.png" />
++    
++    <!-- iOS specific meta tags -->
++    <meta name="apple-mobile-web-app-capable" content="yes" />
++    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
++    <meta name="apple-mobile-web-app-title" content="Swipe Play" />
++    <link rel="apple-touch-icon" href="/icon.png" />
++    <meta name="theme-color" content="#FFFC00" />
++    <meta name="format-detection" content="telephone=no" />
++    
++    <link rel="preconnect" href="https://fonts.googleapis.com">
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
++  </head>
++
++  <body>
++    <div id="root"></div>
++    <script type="module" src="/src/main.tsx"></script>
++  </body>
++</html>
+diff --git a/snapchat-changes.bundle b/snapchat-changes.bundle
+new file mode 100644
+index 0000000000000000000000000000000000000000..694d106d5c8c7502e013d844b7634a8a641180d7
+GIT binary patch
+literal 8414
+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
+Md-Q>>LVx&w03QMx00000
+
+literal 0
+HcmV?d00001
+
+diff --git a/snapchat-changes.patch b/snapchat-changes.patch
+new file mode 100644
+index 0000000..2fd91f7
+--- /dev/null
++++ b/snapchat-changes.patch
+@@ -0,0 +1,835 @@
++From 5d6e6511e57529956d274fac91558f9ef5e88565 Mon Sep 17 00:00:00 2001
++From: acooldora <doraakulshina@gmail.com>
++Date: Sat, 2 Aug 2025 22:19:22 -0400
++Subject: [PATCH 1/4] feat: snapchat-style landing with mobile optimization
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++🎨 Complete redesign in Snapchat style:
++- Yellow/white/black color scheme
++- Bold typography and rounded buttons
++- Ghost icon and gaming emojis
++
++📱 Mobile-first optimization:
++- Responsive typography for all screen sizes
++- Touch-friendly buttons (min 60px height)
++- iOS Safari specific fixes and PWA support
++
++🎮 Casual game animations:
++- bounce-in, swipe-left/right, wiggle, pop effects
++- Floating game emojis throughout
++- Interactive hover states
++
++📏 Reduced landing page length:
++- Removed HowItWorks section
++- Condensed to 3 main sections: Hero, Features, CTA
++- Kept only essential information
++
++meow! 🐱💛
++---
++ index.html                      |   8 ++
++ src/components/CallToAction.tsx |  68 ++++++++-------
++ src/components/Features.tsx     | 110 ++++++++++++-------------
++ src/components/Hero.tsx         | 141 +++++++++++++++-----------------
++ src/index.css                   | 112 +++++++++++++++++--------
++ src/pages/Index.tsx             |   2 -
++ tailwind.config.ts              |  42 ++++++++--
++ 7 files changed, 275 insertions(+), 208 deletions(-)
++
++diff --git a/index.html b/index.html
++index f825726..fe23587 100644
++--- a/index.html
+++++ b/index.html
++@@ -17,6 +17,14 @@
++     <meta name="twitter:site" content="@swipeplaydiscover" />
++     <meta name="twitter:image" content="/icon.png" />
++     
+++    <!-- iOS specific meta tags -->
+++    <meta name="apple-mobile-web-app-capable" content="yes" />
+++    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+++    <meta name="apple-mobile-web-app-title" content="Swipe Play" />
+++    <link rel="apple-touch-icon" href="/icon.png" />
+++    <meta name="theme-color" content="#FFFC00" />
+++    <meta name="format-detection" content="telephone=no" />
+++    
++     <link rel="preconnect" href="https://fonts.googleapis.com">
++     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++     <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
++diff --git a/src/components/CallToAction.tsx b/src/components/CallToAction.tsx
++index 4ea9e4c..ec1afb6 100644
++--- a/src/components/CallToAction.tsx
+++++ b/src/components/CallToAction.tsx
++@@ -1,56 +1,62 @@
++ import { Button } from "@/components/ui/button";
++-import { Play, Download, Sparkles } from "lucide-react";
+++import { Play, Download, Smartphone } from "lucide-react";
++ 
++ const CallToAction = () => {
++   return (
++-    <section className="py-24 px-6 relative overflow-hidden">
++-      {/* Background elements */}
++-      <div className="absolute inset-0 bg-hero-gradient opacity-90"></div>
++-      <div className="absolute inset-0 bg-glow-gradient opacity-30 animate-pulse-glow"></div>
++-      
++-      {/* Floating particles */}
++-      <div className="absolute top-10 left-10 w-2 h-2 bg-white rounded-full animate-float opacity-60"></div>
++-      <div className="absolute top-20 right-20 w-3 h-3 bg-game-yellow rounded-full animate-float delay-75 opacity-60"></div>
++-      <div className="absolute bottom-20 left-20 w-2 h-2 bg-white rounded-full animate-float delay-150 opacity-60"></div>
++-      <div className="absolute bottom-10 right-10 w-4 h-4 bg-game-yellow rounded-full animate-float delay-300 opacity-60"></div>
+++    <section className="py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden bg-snap-black">
+++      {/* Floating game emojis */}
+++      <div className="absolute top-10 left-10 text-3xl animate-bounce-in opacity-40">🎮</div>
+++      <div className="absolute top-20 right-20 text-2xl animate-swipe-left delay-200 opacity-40">🕹️</div>
+++      <div className="absolute bottom-20 left-20 text-4xl animate-float delay-400 opacity-40">🎯</div>
+++      <div className="absolute bottom-10 right-10 text-2xl animate-wiggle delay-600 opacity-40">🎲</div>
+++      <div className="absolute top-1/2 left-1/4 text-2xl animate-pop delay-800 opacity-40">⚡</div>
+++      <div className="absolute top-1/3 right-1/4 text-3xl animate-swipe-right delay-1000 opacity-40">💎</div>
++       
++       <div className="container mx-auto relative z-10 text-center">
++         <div className="max-w-4xl mx-auto">
++-          <Sparkles className="w-16 h-16 text-game-yellow mx-auto mb-8 animate-pulse-glow" />
+++          {/* Main CTA */}
+++          <div className="mb-8 animate-bounce-in">
+++            <Smartphone className="w-20 h-20 mx-auto text-snap-yellow animate-wiggle" />
+++          </div>
++           
++-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
++-            Ready to Transform
+++          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 text-snap-white leading-tight animate-slide-up px-4">
+++            Ready to Play?
++             <br />
++-            <span className="text-game-yellow">Game Discovery?</span>
+++            <span className="text-snap-yellow">Let's Go! 🚀</span>
++           </h2>
++           
++-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
++-            Join thousands of gamers who've already discovered their next favorite game. 
++-            Because finding great games should be as fun as playing them.
+++          <p className="text-lg sm:text-2xl text-snap-white/90 mb-8 sm:mb-12 font-bold animate-slide-up delay-200 px-4">
+++            Join the fun, meow! No strings attached! 🐱💛
++           </p>
++           
++-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+++          {/* Mobile-optimized action buttons */}
+++          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-12 px-4">
++             <Button 
++-              variant="glass" 
++-              size="lg" 
++-              className="text-xl px-12 py-8 bg-white/20 hover:bg-white/30 border-white/30"
+++              className="text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 bg-snap-yellow text-snap-black font-black rounded-full border-4 border-snap-yellow hover:bg-snap-white hover:border-snap-white transform active:scale-95 hover:scale-110 transition-all duration-300 shadow-2xl animate-swipe-left delay-400 min-h-[70px] touch-manipulation"
++               onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
++             >
++-              <Play className="w-6 h-6" />
++-              Start Playing Now
+++              <Play className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
+++              PLAY NOW!
++             </Button>
++             <Button 
++-              variant="glass" 
++-              size="lg" 
++-              className="text-xl px-12 py-8 bg-transparent hover:bg-white/10 border-white/30"
+++              className="text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 bg-transparent text-snap-yellow font-black rounded-full border-4 border-snap-yellow hover:bg-snap-yellow hover:text-snap-black transform active:scale-95 hover:scale-110 transition-all duration-300 shadow-2xl animate-swipe-right delay-500 min-h-[70px] touch-manipulation"
++             >
++-              <Download className="w-6 h-6" />
++-              Download App
+++              <Download className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
+++              GET APP
++             </Button>
++           </div>
++           
++-          <div className="text-white/70 text-sm">
++-            🎮 Free to play • 📱 Available on iOS & Android • ⚡ No ads, ever
+++          {/* Mobile-friendly badges */}
+++          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-bounce-in delay-600 px-4">
+++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
+++              <span className="text-snap-yellow font-bold text-sm sm:text-base">🎮 1000+ Games</span>
+++            </div>
+++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
+++              <span className="text-snap-yellow font-bold text-sm sm:text-base">⚡ Instant Play</span>
+++            </div>
+++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
+++              <span className="text-snap-yellow font-bold text-sm sm:text-base">💛 No Ads</span>
+++            </div>
++           </div>
++         </div>
++       </div>
++diff --git a/src/components/Features.tsx b/src/components/Features.tsx
++index dbcb9fd..a172fb3 100644
++--- a/src/components/Features.tsx
+++++ b/src/components/Features.tsx
++@@ -1,89 +1,81 @@
++-import { Card } from "@/components/ui/card";
++-import { Zap, Heart, Brain, Timer, Gamepad2, Sparkles } from "lucide-react";
++-
++ const Features = () => {
++   const features = [
++     {
++-      icon: Zap,
++-      title: "Instant Gratification",
++-      description: "Games that spark joy in 5 seconds or less. No tutorials, no waiting, just pure fun.",
++-      color: "text-game-yellow",
++-      gradient: "from-game-yellow/20 to-transparent"
++-    },
++-    {
++-      icon: Heart,
++-      title: "Vibe-Coded Curation",
++-      description: "AI-curated games that respect your time and intelligence. No pay-to-win, no energy systems.",
++-      color: "text-game-coral",
++-      gradient: "from-game-coral/20 to-transparent"
++-    },
++-    {
++-      icon: Brain,
++-      title: "Smart Algorithm",
++-      description: "AI that learns your gaming mood. Whether you want zen puzzles or adrenaline rushes.",
++-      color: "text-game-purple",
++-      gradient: "from-game-purple/20 to-transparent"
+++      emoji: "⚡",
+++      title: "Instant Play",
+++      description: "No downloads, pure fun!",
++     },
++     {
++-      icon: Timer,
++-      title: "Context Aware",
++-      description: "Waiting for the bus? Here's a 2-minute brain teaser. Lunch break? Try this chill puzzle.",
++-      color: "text-game-blue",
++-      gradient: "from-game-blue/20 to-transparent"
+++      emoji: "🎯", 
+++      title: "Smart Picks",
+++      description: "AI finds your vibe",
++     },
++     {
++-      icon: Gamepad2,
++-      title: "Mobile Optimized",
++-      description: "Every game is crafted for mobile play. Touch controls that feel natural and responsive.",
++-      color: "text-game-coral-light",
++-      gradient: "from-game-coral-light/20 to-transparent"
++-    },
++-    {
++-      icon: Sparkles,
++-      title: "Hidden Gems",
++-      description: "Discover indie experiments and classic games reimagined. Your personal game sommelier.",
++-      color: "text-game-yellow",
++-      gradient: "from-game-yellow/20 to-transparent"
+++      emoji: "📱",
+++      title: "Mobile First", 
+++      description: "Perfect touch controls",
++     }
++   ];
++ 
++   return (
++-    <section className="py-24 px-6 bg-background relative">
++-      {/* Background decorations */}
++-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent"></div>
+++    <section className="py-12 sm:py-16 px-4 sm:px-6 bg-snap-white relative overflow-hidden">
+++      {/* Floating elements */}
+++      <div className="absolute top-10 left-10 text-2xl animate-float opacity-30">🎮</div>
+++      <div className="absolute top-20 right-20 text-2xl animate-float delay-75 opacity-30">🕹️</div>
+++      <div className="absolute bottom-10 left-20 text-2xl animate-float delay-150 opacity-30">🎲</div>
+++      <div className="absolute bottom-20 right-10 text-2xl animate-float delay-300 opacity-30">⭐</div>
++       
++       <div className="container mx-auto relative z-10">
++-        <div className="text-center mb-16">
++-          <h2 className="text-5xl font-bold mb-6 bg-hero-gradient bg-clip-text text-transparent">
++-            Why Casual Game Flip?
+++        <div className="text-center mb-8 sm:mb-12 px-4">
+++          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black mb-3 sm:mb-4 text-snap-black animate-bounce-in">
+++            Why Choose Us? 🤔
++           </h2>
++-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
++-            We're not just another game platform. We're revolutionizing how you discover and play games, 
++-            making every swipe a delightful surprise.
+++          <p className="text-lg sm:text-xl text-snap-black/70 font-bold animate-slide-up delay-200">
+++            Because we're awesome, meow! 🐱✨
++           </p>
++         </div>
++ 
++-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+++        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
++           {features.map((feature, index) => (
++-            <Card 
+++            <div 
++               key={index} 
++-              className="relative p-8 bg-card-gradient border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-card group overflow-hidden"
+++              className={`bg-snap-yellow/20 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group animate-swipe-${index % 2 === 0 ? 'left' : 'right'} touch-manipulation`}
+++              style={{ animationDelay: `${index * 200}ms` }}
++             >
++-              {/* Background gradient */}
++-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
++-              
++-              <div className="relative z-10">
++-                <feature.icon className={`w-12 h-12 ${feature.color} mb-6 group-hover:scale-110 transition-transform duration-300`} />
++-                <h3 className="text-xl font-semibold mb-4 text-foreground">
+++              <div className="text-center">
+++                <div className="text-4xl sm:text-6xl mb-3 sm:mb-4 group-hover:animate-wiggle">
+++                  {feature.emoji}
+++                </div>
+++                <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 text-snap-black group-hover:text-snap-yellow transition-colors duration-200">
++                   {feature.title}
++                 </h3>
++-                <p className="text-muted-foreground leading-relaxed">
+++                <p className="text-snap-black/80 font-semibold text-base sm:text-lg">
++                   {feature.description}
++                 </p>
++               </div>
++-            </Card>
+++            </div>
++           ))}
++         </div>
+++
+++        {/* Mobile-optimized stats */}
+++        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-3xl mx-auto px-4">
+++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-700 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
+++            <div className="text-2xl sm:text-3xl font-black">1000+</div>
+++            <div className="text-xs sm:text-sm font-bold">Games</div>
+++          </div>
+++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-800 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
+++            <div className="text-2xl sm:text-3xl font-black">0s</div>
+++            <div className="text-xs sm:text-sm font-bold">Wait Time</div>
+++          </div>
+++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-900 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
+++            <div className="text-2xl sm:text-3xl font-black">100%</div>
+++            <div className="text-xs sm:text-sm font-bold">Free</div>
+++          </div>
+++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-1000 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
+++            <div className="text-2xl sm:text-3xl font-black">∞</div>
+++            <div className="text-xs sm:text-sm font-bold">Fun</div>
+++          </div>
+++        </div>
++       </div>
++     </section>
++   );
++diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
++index d7bcdff..b056db9 100644
++--- a/src/components/Hero.tsx
+++++ b/src/components/Hero.tsx
++@@ -1,91 +1,78 @@
++ import { Button } from "@/components/ui/button";
++-import { Play, Smartphone, Zap } from "lucide-react";
++-import heroGames from "@/assets/hero-games.jpg";
+++import { Play, Download, Ghost } from "lucide-react";
++ 
++ const Hero = () => {
++   return (
++-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
++-      {/* Animated background elements */}
++-      <div className="absolute inset-0 bg-glow-gradient opacity-30 animate-pulse-glow"></div>
+++    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-snap-yellow">
+++      {/* Snapchat-style background pattern */}
+++      <div className="absolute inset-0 bg-gradient-glow opacity-20 animate-pulse-glow"></div>
++       
++-      {/* Floating game elements */}
++-      <div className="absolute top-20 left-10 w-16 h-16 bg-game-coral rounded-xl animate-float opacity-20"></div>
++-      <div className="absolute top-40 right-20 w-12 h-12 bg-game-blue rounded-full animate-float delay-75 opacity-20"></div>
++-      <div className="absolute bottom-40 left-20 w-20 h-20 bg-game-yellow rounded-lg animate-float delay-150 opacity-20"></div>
++-      <div className="absolute bottom-20 right-16 w-14 h-14 bg-game-purple rounded-xl animate-float delay-300 opacity-20"></div>
+++      {/* Floating game emojis - casual game style */}
+++      <div className="absolute top-20 left-10 text-4xl animate-bounce-in delay-100">🎮</div>
+++      <div className="absolute top-32 right-20 text-3xl animate-swipe-left delay-200">🕹️</div>
+++      <div className="absolute bottom-40 left-20 text-5xl animate-float">🎯</div>
+++      <div className="absolute bottom-20 right-16 text-3xl animate-wiggle delay-300">🎲</div>
+++      <div className="absolute top-60 left-1/3 text-2xl animate-pop delay-400">⭐</div>
+++      <div className="absolute bottom-60 right-1/3 text-4xl animate-swipe-right delay-500">💎</div>
++ 
++       <div className="container mx-auto px-6 relative z-10">
++-        <div className="grid lg:grid-cols-2 gap-12 items-center">
++-          {/* Text Content */}
++-          <div className="text-center lg:text-left animate-slide-up">
++-            <h1 className="text-6xl lg:text-7xl font-bold mb-6 bg-hero-gradient bg-clip-text text-transparent leading-tight">
++-              Discover Great Games, Fast
++-            </h1>
++-            
++-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
++-              Swipe through instant-play games in seconds. No downloads, no ads, no friction. 
++-              Just pure gameplay in a TikTok-style feed designed for gamers.
++-            </p>
++-            
++-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
++-              <Button 
++-                variant="hero" 
++-                size="lg" 
++-                className="text-lg px-8 py-6"
++-                onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
++-              >
++-                <Play className="w-5 h-5" />
++-                Start Playing Now
++-              </Button>
++-              <Button variant="glass" size="lg" className="text-lg px-8 py-6">
++-                <Smartphone className="w-5 h-5" />
++-                Get the App
++-              </Button>
++-            </div>
++-
++-            {/* Features quick list */}
++-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-muted-foreground">
++-              <div className="flex items-center gap-2">
++-                <Zap className="w-4 h-4 text-game-yellow" />
++-                <span>Instant Play</span>
++-              </div>
++-              <div className="flex items-center gap-2">
++-                <Play className="w-4 h-4 text-game-coral" />
++-                <span>No Downloads</span>
++-              </div>
++-              <div className="flex items-center gap-2">
++-                <Smartphone className="w-4 h-4 text-game-blue" />
++-                <span>Mobile Optimized</span>
++-              </div>
++-            </div>
+++        <div className="text-center max-w-4xl mx-auto">
+++          {/* Snapchat-style ghost icon */}
+++          <div className="mb-8 animate-bounce-in">
+++            <Ghost className="w-24 h-24 mx-auto text-snap-white drop-shadow-lg" />
+++          </div>
+++          
+++          {/* Main heading - Responsive for mobile */}
+++          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 text-snap-white drop-shadow-2xl leading-tight animate-slide-up">
+++            Play Games
+++            <br />
+++            <span className="text-snap-black">Instantly!</span>
+++          </h1>
+++          
+++          {/* Subheading */}
+++          <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-snap-black mb-6 sm:mb-8 animate-slide-up delay-200">
+++            Swipe • Play • Repeat 🔥
+++          </p>
+++          
+++          {/* Simple description */}
+++          <p className="text-base sm:text-lg text-snap-black/80 mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-300 px-4">
+++            No downloads, no ads, no BS. Just pure gaming fun in seconds! meow! 🐱
+++          </p>
+++          
+++          {/* Mobile-optimized buttons */}
+++          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 animate-swipe-left delay-400 px-4">
+++            <Button 
+++              className="text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-snap-black text-snap-yellow font-black rounded-full border-4 border-snap-black hover:bg-snap-white hover:text-snap-black transform active:scale-95 hover:scale-105 transition-all duration-200 shadow-lg animate-pop min-h-[60px] touch-manipulation"
+++              onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
+++            >
+++              <Play className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+++              START PLAYING
+++            </Button>
+++            <Button 
+++              className="text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-snap-white text-snap-black font-black rounded-full border-4 border-snap-black hover:bg-snap-yellow transform active:scale-95 hover:scale-105 transition-all duration-200 shadow-lg animate-pop delay-100 min-h-[60px] touch-manipulation"
+++            >
+++              <Download className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+++              GET APP
+++            </Button>
++           </div>
++ 
++-          {/* Visual Content */}
++-          <div className="relative animate-slide-up delay-300">
++-            <div className="relative rounded-3xl overflow-hidden shadow-card">
++-              <img 
++-                src={heroGames} 
++-                alt="Gaming interface" 
++-                className="w-full h-auto object-cover"
++-              />
++-              <div className="absolute inset-0 bg-hero-gradient opacity-20"></div>
++-              {/* Game controller icon overlay */}
++-              <img 
++-                src="/icon.png" 
++-                alt="Game controller" 
++-                className="absolute top-8 right-8 w-24 h-24 md:w-32 md:h-32 opacity-90 drop-shadow-2xl animate-float"
++-              />
+++          {/* Mobile-friendly game cards */}
+++          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto animate-swipe-right delay-500 px-4">
+++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float hover:animate-wiggle touch-manipulation">
+++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎮</div>
+++              <div className="text-xs sm:text-sm font-bold text-snap-black">Puzzle</div>
+++            </div>
+++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-75 hover:animate-wiggle touch-manipulation">
+++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🏃‍♂️</div>
+++              <div className="text-xs sm:text-sm font-bold text-snap-black">Runner</div>
++             </div>
++-            
++-            {/* Floating UI elements */}
++-            <div className="absolute -top-4 -right-4 bg-card-gradient p-4 rounded-2xl shadow-glow border border-white/10 backdrop-blur-sm animate-float">
++-              <div className="text-2xl font-bold text-game-coral">5sec</div>
++-              <div className="text-xs text-muted-foreground">to fun</div>
+++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-150 hover:animate-wiggle touch-manipulation">
+++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎯</div>
+++              <div className="text-xs sm:text-sm font-bold text-snap-black">Arcade</div>
++             </div>
++-            
++-            <div className="absolute -bottom-4 -left-4 bg-card-gradient p-4 rounded-2xl shadow-blue-glow border border-white/10 backdrop-blur-sm animate-float delay-150">
++-              <div className="text-2xl font-bold text-game-blue">1000+</div>
++-              <div className="text-xs text-muted-foreground">games</div>
+++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-300 hover:animate-wiggle touch-manipulation">
+++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🧩</div>
+++              <div className="text-xs sm:text-sm font-bold text-snap-black">Strategy</div>
++             </div>
++           </div>
++         </div>
++diff --git a/src/index.css b/src/index.css
++index 673002f..c1c0763 100644
++--- a/src/index.css
+++++ b/src/index.css
++@@ -8,54 +8,55 @@ All colors MUST be HSL.
++ 
++ @layer base {
++   :root {
++-    --background: 240 10% 4%;
++-    --foreground: 0 0% 98%;
+++    /* Snapchat color scheme */
+++    --background: 0 0% 100%;
+++    --foreground: 0 0% 9%;
++ 
++-    --card: 240 8% 6%;
++-    --card-foreground: 0 0% 98%;
+++    --card: 0 0% 100%;
+++    --card-foreground: 0 0% 9%;
++ 
++-    --popover: 240 8% 6%;
++-    --popover-foreground: 0 0% 98%;
+++    --popover: 0 0% 100%;
+++    --popover-foreground: 0 0% 9%;
++ 
++-    --primary: 348 83% 68%;
++-    --primary-foreground: 0 0% 98%;
+++    --primary: 64 100% 50%;
+++    --primary-foreground: 0 0% 0%;
++ 
++-    --secondary: 195 100% 60%;
++-    --secondary-foreground: 240 10% 4%;
+++    --secondary: 0 0% 96%;
+++    --secondary-foreground: 0 0% 9%;
++ 
++-    --muted: 240 5% 15%;
++-    --muted-foreground: 240 4% 65%;
+++    --muted: 0 0% 96%;
+++    --muted-foreground: 0 0% 45%;
++ 
++-    --accent: 45 93% 58%;
++-    --accent-foreground: 240 10% 4%;
+++    --accent: 64 100% 50%;
+++    --accent-foreground: 0 0% 0%;
++ 
++     --destructive: 0 84% 60%;
++     --destructive-foreground: 0 0% 98%;
++ 
++-    --border: 240 6% 15%;
++-    --input: 240 6% 15%;
++-    --ring: 348 83% 68%;
+++    --border: 0 0% 89%;
+++    --input: 0 0% 89%;
+++    --ring: 64 100% 50%;
++ 
++-    --radius: 1rem;
+++    --radius: 1.5rem;
++ 
++-    /* Gaming-specific colors and gradients */
++-    --game-coral: 348 83% 68%;
++-    --game-coral-light: 348 83% 75%;
++-    --game-blue: 195 100% 60%;
++-    --game-blue-light: 195 100% 70%;
++-    --game-yellow: 45 93% 58%;
++-    --game-purple: 260 90% 65%;
+++    /* Snapchat-style colors */
+++    --snap-yellow: 64 100% 50%;
+++    --snap-yellow-light: 64 100% 85%;
+++    --snap-blue: 200 100% 50%;
+++    --snap-white: 0 0% 100%;
+++    --snap-black: 0 0% 0%;
+++    --snap-gray: 0 0% 96%;
++     
++     /* Gradients */
++-    --gradient-hero: linear-gradient(135deg, hsl(348 83% 68%), hsl(195 100% 60%));
++-    --gradient-card: linear-gradient(145deg, hsl(240 8% 6%), hsl(240 6% 10%));
++-    --gradient-accent: linear-gradient(90deg, hsl(348 83% 68%), hsl(45 93% 58%));
++-    --gradient-glow: linear-gradient(135deg, hsl(348 83% 68% / 0.3), hsl(195 100% 60% / 0.3));
+++    --gradient-hero: linear-gradient(135deg, hsl(64 100% 50%), hsl(200 100% 50%));
+++    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 96%));
+++    --gradient-accent: linear-gradient(90deg, hsl(64 100% 50%), hsl(200 100% 50%));
+++    --gradient-glow: radial-gradient(circle, hsl(64 100% 50% / 0.3), transparent);
++     
++     /* Shadows and effects */
++-    --shadow-glow: 0 0 40px hsl(348 83% 68% / 0.3);
++-    --shadow-blue-glow: 0 0 40px hsl(195 100% 60% / 0.3);
++-    --shadow-card: 0 8px 32px hsl(240 10% 4% / 0.6);
+++    --shadow-glow: 0 0 30px hsl(64 100% 50% / 0.4);
+++    --shadow-blue-glow: 0 0 30px hsl(200 100% 50% / 0.4);
+++    --shadow-card: 0 10px 25px hsl(0 0% 0% / 0.1);
++     
++     /* Animations */
++     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++@@ -130,4 +131,51 @@ All colors MUST be HSL.
++     font-family: 'Nata Sans', sans-serif;
++     font-weight: 700;
++   }
+++
+++  /* iOS Safari specific fixes */
+++  @supports (-webkit-touch-callout: none) {
+++    /* iOS Safari */
+++    .touch-manipulation {
+++      -webkit-tap-highlight-color: transparent;
+++      -webkit-touch-callout: none;
+++      -webkit-user-select: none;
+++      user-select: none;
+++    }
+++    
+++    /* Fix for iOS Safari viewport height issues */
+++    .min-h-screen {
+++      min-height: -webkit-fill-available;
+++    }
+++    
+++    /* Smooth scrolling on iOS */
+++    html {
+++      -webkit-overflow-scrolling: touch;
+++    }
+++    
+++    /* Prevent zoom on input focus */
+++    input, select, textarea {
+++      font-size: 16px !important;
+++    }
+++    
+++    /* Fix button appearance on iOS */
+++    button {
+++      -webkit-appearance: none;
+++      border-radius: 0;
+++    }
+++  }
+++
+++  /* Reduce motion for users who prefer it */
+++  @media (prefers-reduced-motion: reduce) {
+++    * {
+++      animation-duration: 0.01ms !important;
+++      animation-iteration-count: 1 !important;
+++      transition-duration: 0.01ms !important;
+++    }
+++  }
+++
+++  /* Improve touch targets */
+++  .touch-manipulation {
+++    touch-action: manipulation;
+++    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+++  }
++ }
++\ No newline at end of file
++diff --git a/src/pages/Index.tsx b/src/pages/Index.tsx
++index 5488bcb..082b546 100644
++--- a/src/pages/Index.tsx
+++++ b/src/pages/Index.tsx
++@@ -1,6 +1,5 @@
++ import Hero from "@/components/Hero";
++ import Features from "@/components/Features";
++-import HowItWorks from "@/components/HowItWorks";
++ import CallToAction from "@/components/CallToAction";
++ 
++ const Index = () => {
++@@ -8,7 +7,6 @@ const Index = () => {
++     <main className="min-h-screen bg-background">
++       <Hero />
++       <Features />
++-      <HowItWorks />
++       <CallToAction />
++     </main>
++   );
++diff --git a/tailwind.config.ts b/tailwind.config.ts
++index f54dac7..b28a83f 100644
++--- a/tailwind.config.ts
+++++ b/tailwind.config.ts
++@@ -62,12 +62,12 @@ export default {
++ 					border: 'hsl(var(--sidebar-border))',
++ 					ring: 'hsl(var(--sidebar-ring))'
++ 				},
++-				'game-coral': 'hsl(var(--game-coral))',
++-				'game-coral-light': 'hsl(var(--game-coral-light))',
++-				'game-blue': 'hsl(var(--game-blue))',
++-				'game-blue-light': 'hsl(var(--game-blue-light))',
++-				'game-yellow': 'hsl(var(--game-yellow))',
++-				'game-purple': 'hsl(var(--game-purple))'
+++				'snap-yellow': 'hsl(var(--snap-yellow))',
+++				'snap-yellow-light': 'hsl(var(--snap-yellow-light))',
+++				'snap-blue': 'hsl(var(--snap-blue))',
+++				'snap-white': 'hsl(var(--snap-white))',
+++				'snap-black': 'hsl(var(--snap-black))',
+++				'snap-gray': 'hsl(var(--snap-gray))'
++ 			},
++ 			backgroundImage: {
++ 				'hero-gradient': 'var(--gradient-hero)',
++@@ -117,6 +117,29 @@ export default {
++ 				'slide-up': {
++ 					'0%': { transform: 'translateY(20px)', opacity: '0' },
++ 					'100%': { transform: 'translateY(0)', opacity: '1' }
+++				},
+++				'bounce-in': {
+++					'0%': { transform: 'scale(0.3)', opacity: '0' },
+++					'50%': { transform: 'scale(1.05)' },
+++					'70%': { transform: 'scale(0.9)' },
+++					'100%': { transform: 'scale(1)', opacity: '1' }
+++				},
+++				'swipe-left': {
+++					'0%': { transform: 'translateX(100px)', opacity: '0' },
+++					'100%': { transform: 'translateX(0)', opacity: '1' }
+++				},
+++				'swipe-right': {
+++					'0%': { transform: 'translateX(-100px)', opacity: '0' },
+++					'100%': { transform: 'translateX(0)', opacity: '1' }
+++				},
+++				'wiggle': {
+++					'0%, 100%': { transform: 'rotate(-3deg)' },
+++					'50%': { transform: 'rotate(3deg)' }
+++				},
+++				'pop': {
+++					'0%': { transform: 'scale(1)' },
+++					'50%': { transform: 'scale(1.1)' },
+++					'100%': { transform: 'scale(1)' }
++ 				}
++ 			},
++ 			animation: {
++@@ -124,7 +147,12 @@ export default {
++ 				'accordion-up': 'accordion-up 0.2s ease-out',
++ 				'float': 'float 3s ease-in-out infinite',
++ 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
++-				'slide-up': 'slide-up 0.6s ease-out'
+++				'slide-up': 'slide-up 0.6s ease-out',
+++				'bounce-in': 'bounce-in 0.8s ease-out',
+++				'swipe-left': 'swipe-left 0.5s ease-out',
+++				'swipe-right': 'swipe-right 0.5s ease-out',
+++				'wiggle': 'wiggle 1s ease-in-out infinite',
+++				'pop': 'pop 0.3s ease-in-out'
++ 			}
++ 		}
++ 	},
++-- 
++2.39.5 (Apple Git-154)
++
++
++From bf4298ce7c3128d1ffc2377735bac7122d709e4e Mon Sep 17 00:00:00 2001
++From: acooldora <doraakulshina@gmail.com>
++Date: Sat, 2 Aug 2025 22:22:26 -0400
++Subject: [PATCH 2/4] fix: restore original landing text while keeping Snapchat
++ styling
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++- Changed back to 'Discover Great Games, Fast'
++- Restored original description about TikTok-style feed
++- Kept all Snapchat design and mobile optimization
++- meow! 🐱
++---
++ src/components/Hero.tsx | 18 +++++++-----------
++ 1 file changed, 7 insertions(+), 11 deletions(-)
++
++diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
++index b056db9..19c7d88 100644
++--- a/src/components/Hero.tsx
+++++ b/src/components/Hero.tsx
++@@ -22,21 +22,17 @@ const Hero = () => {
++             <Ghost className="w-24 h-24 mx-auto text-snap-white drop-shadow-lg" />
++           </div>
++           
++-          {/* Main heading - Responsive for mobile */}
+++          {/* Main heading - Original text with Snapchat style */}
++           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 text-snap-white drop-shadow-2xl leading-tight animate-slide-up">
++-            Play Games
+++            Discover Great Games,
++             <br />
++-            <span className="text-snap-black">Instantly!</span>
+++            <span className="text-snap-black">Fast</span>
++           </h1>
++           
++-          {/* Subheading */}
++-          <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-snap-black mb-6 sm:mb-8 animate-slide-up delay-200">
++-            Swipe • Play • Repeat 🔥
++-          </p>
++-          
++-          {/* Simple description */}
++-          <p className="text-base sm:text-lg text-snap-black/80 mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-300 px-4">
++-            No downloads, no ads, no BS. Just pure gaming fun in seconds! meow! 🐱
+++          {/* Original description with Snapchat styling */}
+++          <p className="text-base sm:text-lg text-snap-black/80 mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-200 px-4 leading-relaxed">
+++            Swipe through instant-play games in seconds. No downloads, no ads, no friction. 
+++            Just pure gameplay in a TikTok-style feed designed for gamers.
++           </p>
++           
++           {/* Mobile-optimized buttons */}
++-- 
++2.39.5 (Apple Git-154)
++
++
++From 9bc9e3bee03bd14999149d22920b7276daa12d38 Mon Sep 17 00:00:00 2001
++From: acooldora <doraakulshina@gmail.com>
++Date: Sat, 2 Aug 2025 22:24:13 -0400
++Subject: [PATCH 3/4] enhance: make text more prominent with better contrast
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++✨ Improved text visibility:
++- Added strong drop-shadows for all text elements
++- 'Games' and 'Fast' now in black with white shadow
++- 'Discover Great' in white with black shadow
++- Made description font-bold for better readability
++- Enhanced contrast against yellow background
++
++meow! 🐱💛
++---
++ src/components/Hero.tsx | 14 ++++++++------
++ 1 file changed, 8 insertions(+), 6 deletions(-)
++
++diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
++index 19c7d88..7366de2 100644
++--- a/src/components/Hero.tsx
+++++ b/src/components/Hero.tsx
++@@ -22,15 +22,17 @@ const Hero = () => {
++             <Ghost className="w-24 h-24 mx-auto text-snap-white drop-shadow-lg" />
++           </div>
++           
++-          {/* Main heading - Original text with Snapchat style */}
++-          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 text-snap-white drop-shadow-2xl leading-tight animate-slide-up">
++-            Discover Great Games,
+++          {/* Main heading - More prominent text */}
+++          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 leading-tight animate-slide-up">
+++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Discover Great </span>
+++            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Games</span>
+++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">,</span>
++             <br />
++-            <span className="text-snap-black">Fast</span>
+++            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Fast</span>
++           </h1>
++           
++-          {/* Original description with Snapchat styling */}
++-          <p className="text-base sm:text-lg text-snap-black/80 mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-200 px-4 leading-relaxed">
+++          {/* More prominent description */}
+++          <p className="text-base sm:text-lg text-snap-black font-bold mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-200 px-4 leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
++             Swipe through instant-play games in seconds. No downloads, no ads, no friction. 
++             Just pure gameplay in a TikTok-style feed designed for gamers.
++           </p>
++-- 
++2.39.5 (Apple Git-154)
++
++
++From 06dbe4b52f4bd440aa0f6a987a6c798c0f94db11 Mon Sep 17 00:00:00 2001
++From: acooldora <doraakulshina@gmail.com>
++Date: Sat, 2 Aug 2025 22:24:36 -0400
++Subject: [PATCH 4/4] fix: make 'Fast' text white for better visual balance
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++- Changed 'Fast' from black to white color
++- Kept black drop-shadow for contrast
++- Now 'Games' is black, 'Fast' is white for better hierarchy
++
++meow! 🐱
++---
++ src/components/Hero.tsx | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
++index 7366de2..247c93b 100644
++--- a/src/components/Hero.tsx
+++++ b/src/components/Hero.tsx
++@@ -28,7 +28,7 @@ const Hero = () => {
++             <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Games</span>
++             <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">,</span>
++             <br />
++-            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Fast</span>
+++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Fast</span>
++           </h1>
++           
++           {/* More prominent description */}
++-- 
++2.39.5 (Apple Git-154)
++
+diff --git a/src/components/CallToAction.tsx b/src/components/CallToAction.tsx
+new file mode 100644
+index 0000000..ec1afb6
+--- /dev/null
++++ b/src/components/CallToAction.tsx
+@@ -0,0 +1,67 @@
++import { Button } from "@/components/ui/button";
++import { Play, Download, Smartphone } from "lucide-react";
++
++const CallToAction = () => {
++  return (
++    <section className="py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden bg-snap-black">
++      {/* Floating game emojis */}
++      <div className="absolute top-10 left-10 text-3xl animate-bounce-in opacity-40">🎮</div>
++      <div className="absolute top-20 right-20 text-2xl animate-swipe-left delay-200 opacity-40">🕹️</div>
++      <div className="absolute bottom-20 left-20 text-4xl animate-float delay-400 opacity-40">🎯</div>
++      <div className="absolute bottom-10 right-10 text-2xl animate-wiggle delay-600 opacity-40">🎲</div>
++      <div className="absolute top-1/2 left-1/4 text-2xl animate-pop delay-800 opacity-40">⚡</div>
++      <div className="absolute top-1/3 right-1/4 text-3xl animate-swipe-right delay-1000 opacity-40">💎</div>
++      
++      <div className="container mx-auto relative z-10 text-center">
++        <div className="max-w-4xl mx-auto">
++          {/* Main CTA */}
++          <div className="mb-8 animate-bounce-in">
++            <Smartphone className="w-20 h-20 mx-auto text-snap-yellow animate-wiggle" />
++          </div>
++          
++          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 text-snap-white leading-tight animate-slide-up px-4">
++            Ready to Play?
++            <br />
++            <span className="text-snap-yellow">Let's Go! 🚀</span>
++          </h2>
++          
++          <p className="text-lg sm:text-2xl text-snap-white/90 mb-8 sm:mb-12 font-bold animate-slide-up delay-200 px-4">
++            Join the fun, meow! No strings attached! 🐱💛
++          </p>
++          
++          {/* Mobile-optimized action buttons */}
++          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-12 px-4">
++            <Button 
++              className="text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 bg-snap-yellow text-snap-black font-black rounded-full border-4 border-snap-yellow hover:bg-snap-white hover:border-snap-white transform active:scale-95 hover:scale-110 transition-all duration-300 shadow-2xl animate-swipe-left delay-400 min-h-[70px] touch-manipulation"
++              onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
++            >
++              <Play className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
++              PLAY NOW!
++            </Button>
++            <Button 
++              className="text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 bg-transparent text-snap-yellow font-black rounded-full border-4 border-snap-yellow hover:bg-snap-yellow hover:text-snap-black transform active:scale-95 hover:scale-110 transition-all duration-300 shadow-2xl animate-swipe-right delay-500 min-h-[70px] touch-manipulation"
++            >
++              <Download className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
++              GET APP
++            </Button>
++          </div>
++          
++          {/* Mobile-friendly badges */}
++          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-bounce-in delay-600 px-4">
++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
++              <span className="text-snap-yellow font-bold text-sm sm:text-base">🎮 1000+ Games</span>
++            </div>
++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
++              <span className="text-snap-yellow font-bold text-sm sm:text-base">⚡ Instant Play</span>
++            </div>
++            <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
++              <span className="text-snap-yellow font-bold text-sm sm:text-base">💛 No Ads</span>
++            </div>
++          </div>
++        </div>
++      </div>
++    </section>
++  );
++};
++
++export default CallToAction;
+\ No newline at end of file
+diff --git a/src/components/Features.tsx b/src/components/Features.tsx
+new file mode 100644
+index 0000000..a172fb3
+--- /dev/null
++++ b/src/components/Features.tsx
+@@ -0,0 +1,84 @@
++const Features = () => {
++  const features = [
++    {
++      emoji: "⚡",
++      title: "Instant Play",
++      description: "No downloads, pure fun!",
++    },
++    {
++      emoji: "🎯", 
++      title: "Smart Picks",
++      description: "AI finds your vibe",
++    },
++    {
++      emoji: "📱",
++      title: "Mobile First", 
++      description: "Perfect touch controls",
++    }
++  ];
++
++  return (
++    <section className="py-12 sm:py-16 px-4 sm:px-6 bg-snap-white relative overflow-hidden">
++      {/* Floating elements */}
++      <div className="absolute top-10 left-10 text-2xl animate-float opacity-30">🎮</div>
++      <div className="absolute top-20 right-20 text-2xl animate-float delay-75 opacity-30">🕹️</div>
++      <div className="absolute bottom-10 left-20 text-2xl animate-float delay-150 opacity-30">🎲</div>
++      <div className="absolute bottom-20 right-10 text-2xl animate-float delay-300 opacity-30">⭐</div>
++      
++      <div className="container mx-auto relative z-10">
++        <div className="text-center mb-8 sm:mb-12 px-4">
++          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black mb-3 sm:mb-4 text-snap-black animate-bounce-in">
++            Why Choose Us? 🤔
++          </h2>
++          <p className="text-lg sm:text-xl text-snap-black/70 font-bold animate-slide-up delay-200">
++            Because we're awesome, meow! 🐱✨
++          </p>
++        </div>
++
++        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
++          {features.map((feature, index) => (
++            <div 
++              key={index} 
++              className={`bg-snap-yellow/20 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group animate-swipe-${index % 2 === 0 ? 'left' : 'right'} touch-manipulation`}
++              style={{ animationDelay: `${index * 200}ms` }}
++            >
++              <div className="text-center">
++                <div className="text-4xl sm:text-6xl mb-3 sm:mb-4 group-hover:animate-wiggle">
++                  {feature.emoji}
++                </div>
++                <h3 className="text-xl sm:text-2xl font-black mb-2 sm:mb-3 text-snap-black group-hover:text-snap-yellow transition-colors duration-200">
++                  {feature.title}
++                </h3>
++                <p className="text-snap-black/80 font-semibold text-base sm:text-lg">
++                  {feature.description}
++                </p>
++              </div>
++            </div>
++          ))}
++        </div>
++
++        {/* Mobile-optimized stats */}
++        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-3xl mx-auto px-4">
++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-700 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
++            <div className="text-2xl sm:text-3xl font-black">1000+</div>
++            <div className="text-xs sm:text-sm font-bold">Games</div>
++          </div>
++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-800 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
++            <div className="text-2xl sm:text-3xl font-black">0s</div>
++            <div className="text-xs sm:text-sm font-bold">Wait Time</div>
++          </div>
++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-900 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
++            <div className="text-2xl sm:text-3xl font-black">100%</div>
++            <div className="text-xs sm:text-sm font-bold">Free</div>
++          </div>
++          <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-1000 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
++            <div className="text-2xl sm:text-3xl font-black">∞</div>
++            <div className="text-xs sm:text-sm font-bold">Fun</div>
++          </div>
++        </div>
++      </div>
++    </section>
++  );
++};
++
++export default Features;
+\ No newline at end of file
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+new file mode 100644
+index 0000000..247c93b
+--- /dev/null
++++ b/src/components/Hero.tsx
+@@ -0,0 +1,82 @@
++import { Button } from "@/components/ui/button";
++import { Play, Download, Ghost } from "lucide-react";
++
++const Hero = () => {
++  return (
++    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-snap-yellow">
++      {/* Snapchat-style background pattern */}
++      <div className="absolute inset-0 bg-gradient-glow opacity-20 animate-pulse-glow"></div>
++      
++      {/* Floating game emojis - casual game style */}
++      <div className="absolute top-20 left-10 text-4xl animate-bounce-in delay-100">🎮</div>
++      <div className="absolute top-32 right-20 text-3xl animate-swipe-left delay-200">🕹️</div>
++      <div className="absolute bottom-40 left-20 text-5xl animate-float">🎯</div>
++      <div className="absolute bottom-20 right-16 text-3xl animate-wiggle delay-300">🎲</div>
++      <div className="absolute top-60 left-1/3 text-2xl animate-pop delay-400">⭐</div>
++      <div className="absolute bottom-60 right-1/3 text-4xl animate-swipe-right delay-500">💎</div>
++
++      <div className="container mx-auto px-6 relative z-10">
++        <div className="text-center max-w-4xl mx-auto">
++          {/* Snapchat-style ghost icon */}
++          <div className="mb-8 animate-bounce-in">
++            <Ghost className="w-24 h-24 mx-auto text-snap-white drop-shadow-lg" />
++          </div>
++          
++          {/* Main heading - More prominent text */}
++          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 leading-tight animate-slide-up">
++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Discover Great </span>
++            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Games</span>
++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">,</span>
++            <br />
++            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Fast</span>
++          </h1>
++          
++          {/* More prominent description */}
++          <p className="text-base sm:text-lg text-snap-black font-bold mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-200 px-4 leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
++            Swipe through instant-play games in seconds. No downloads, no ads, no friction. 
++            Just pure gameplay in a TikTok-style feed designed for gamers.
++          </p>
++          
++          {/* Mobile-optimized buttons */}
++          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 animate-swipe-left delay-400 px-4">
++            <Button 
++              className="text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-snap-black text-snap-yellow font-black rounded-full border-4 border-snap-black hover:bg-snap-white hover:text-snap-black transform active:scale-95 hover:scale-105 transition-all duration-200 shadow-lg animate-pop min-h-[60px] touch-manipulation"
++              onClick={() => window.open('https://casual-game-flip.expo.app/', '_blank')}
++            >
++              <Play className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
++              START PLAYING
++            </Button>
++            <Button 
++              className="text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-snap-white text-snap-black font-black rounded-full border-4 border-snap-black hover:bg-snap-yellow transform active:scale-95 hover:scale-105 transition-all duration-200 shadow-lg animate-pop delay-100 min-h-[60px] touch-manipulation"
++            >
++              <Download className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
++              GET APP
++            </Button>
++          </div>
++
++          {/* Mobile-friendly game cards */}
++          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto animate-swipe-right delay-500 px-4">
++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float hover:animate-wiggle touch-manipulation">
++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎮</div>
++              <div className="text-xs sm:text-sm font-bold text-snap-black">Puzzle</div>
++            </div>
++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-75 hover:animate-wiggle touch-manipulation">
++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🏃‍♂️</div>
++              <div className="text-xs sm:text-sm font-bold text-snap-black">Runner</div>
++            </div>
++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-150 hover:animate-wiggle touch-manipulation">
++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎯</div>
++              <div className="text-xs sm:text-sm font-bold text-snap-black">Arcade</div>
++            </div>
++            <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-300 hover:animate-wiggle touch-manipulation">
++              <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🧩</div>
++              <div className="text-xs sm:text-sm font-bold text-snap-black">Strategy</div>
++            </div>
++          </div>
++        </div>
++      </div>
++    </section>
++  );
++};
++
++export default Hero;
+\ No newline at end of file
+diff --git a/src/index.css b/src/index.css
+new file mode 100644
+index 0000000..c1c0763
+--- /dev/null
++++ b/src/index.css
+@@ -0,0 +1,181 @@
++@tailwind base;
++@tailwind components;
++@tailwind utilities;
++
++/* Gaming-themed design system inspired by modern controllers and TikTok aesthetics
++All colors MUST be HSL.
++*/
++
++@layer base {
++  :root {
++    /* Snapchat color scheme */
++    --background: 0 0% 100%;
++    --foreground: 0 0% 9%;
++
++    --card: 0 0% 100%;
++    --card-foreground: 0 0% 9%;
++
++    --popover: 0 0% 100%;
++    --popover-foreground: 0 0% 9%;
++
++    --primary: 64 100% 50%;
++    --primary-foreground: 0 0% 0%;
++
++    --secondary: 0 0% 96%;
++    --secondary-foreground: 0 0% 9%;
++
++    --muted: 0 0% 96%;
++    --muted-foreground: 0 0% 45%;
++
++    --accent: 64 100% 50%;
++    --accent-foreground: 0 0% 0%;
++
++    --destructive: 0 84% 60%;
++    --destructive-foreground: 0 0% 98%;
++
++    --border: 0 0% 89%;
++    --input: 0 0% 89%;
++    --ring: 64 100% 50%;
++
++    --radius: 1.5rem;
++
++    /* Snapchat-style colors */
++    --snap-yellow: 64 100% 50%;
++    --snap-yellow-light: 64 100% 85%;
++    --snap-blue: 200 100% 50%;
++    --snap-white: 0 0% 100%;
++    --snap-black: 0 0% 0%;
++    --snap-gray: 0 0% 96%;
++    
++    /* Gradients */
++    --gradient-hero: linear-gradient(135deg, hsl(64 100% 50%), hsl(200 100% 50%));
++    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 96%));
++    --gradient-accent: linear-gradient(90deg, hsl(64 100% 50%), hsl(200 100% 50%));
++    --gradient-glow: radial-gradient(circle, hsl(64 100% 50% / 0.3), transparent);
++    
++    /* Shadows and effects */
++    --shadow-glow: 0 0 30px hsl(64 100% 50% / 0.4);
++    --shadow-blue-glow: 0 0 30px hsl(200 100% 50% / 0.4);
++    --shadow-card: 0 10px 25px hsl(0 0% 0% / 0.1);
++    
++    /* Animations */
++    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
++
++    --sidebar-background: 0 0% 98%;
++
++    --sidebar-foreground: 240 5.3% 26.1%;
++
++    --sidebar-primary: 240 5.9% 10%;
++
++    --sidebar-primary-foreground: 0 0% 98%;
++
++    --sidebar-accent: 240 4.8% 95.9%;
++
++    --sidebar-accent-foreground: 240 5.9% 10%;
++
++    --sidebar-border: 220 13% 91%;
++
++    --sidebar-ring: 217.2 91.2% 59.8%;
++  }
++
++  .dark {
++    --background: 222.2 84% 4.9%;
++    --foreground: 210 40% 98%;
++
++    --card: 222.2 84% 4.9%;
++    --card-foreground: 210 40% 98%;
++
++    --popover: 222.2 84% 4.9%;
++    --popover-foreground: 210 40% 98%;
++
++    --primary: 210 40% 98%;
++    --primary-foreground: 222.2 47.4% 11.2%;
++
++    --secondary: 217.2 32.6% 17.5%;
++    --secondary-foreground: 210 40% 98%;
++
++    --muted: 217.2 32.6% 17.5%;
++    --muted-foreground: 215 20.2% 65.1%;
++
++    --accent: 217.2 32.6% 17.5%;
++    --accent-foreground: 210 40% 98%;
++
++    --destructive: 0 62.8% 30.6%;
++    --destructive-foreground: 210 40% 98%;
++
++    --border: 217.2 32.6% 17.5%;
++    --input: 217.2 32.6% 17.5%;
++    --ring: 212.7 26.8% 83.9%;
++    --sidebar-background: 240 5.9% 10%;
++    --sidebar-foreground: 240 4.8% 95.9%;
++    --sidebar-primary: 224.3 76.3% 48%;
++    --sidebar-primary-foreground: 0 0% 100%;
++    --sidebar-accent: 240 3.7% 15.9%;
++    --sidebar-accent-foreground: 240 4.8% 95.9%;
++    --sidebar-border: 240 3.7% 15.9%;
++    --sidebar-ring: 217.2 91.2% 59.8%;
++  }
++}
++
++@layer base {
++  * {
++    @apply border-border;
++  }
++
++  body {
++    @apply bg-background text-foreground;
++  }
++  
++  h1, h2, h3, h4, h5, h6 {
++    font-family: 'Nata Sans', sans-serif;
++    font-weight: 700;
++  }
++
++  /* iOS Safari specific fixes */
++  @supports (-webkit-touch-callout: none) {
++    /* iOS Safari */
++    .touch-manipulation {
++      -webkit-tap-highlight-color: transparent;
++      -webkit-touch-callout: none;
++      -webkit-user-select: none;
++      user-select: none;
++    }
++    
++    /* Fix for iOS Safari viewport height issues */
++    .min-h-screen {
++      min-height: -webkit-fill-available;
++    }
++    
++    /* Smooth scrolling on iOS */
++    html {
++      -webkit-overflow-scrolling: touch;
++    }
++    
++    /* Prevent zoom on input focus */
++    input, select, textarea {
++      font-size: 16px !important;
++    }
++    
++    /* Fix button appearance on iOS */
++    button {
++      -webkit-appearance: none;
++      border-radius: 0;
++    }
++  }
++
++  /* Reduce motion for users who prefer it */
++  @media (prefers-reduced-motion: reduce) {
++    * {
++      animation-duration: 0.01ms !important;
++      animation-iteration-count: 1 !important;
++      transition-duration: 0.01ms !important;
++    }
++  }
++
++  /* Improve touch targets */
++  .touch-manipulation {
++    touch-action: manipulation;
++    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
++  }
++}
+\ No newline at end of file
+diff --git a/src/pages/Index.tsx b/src/pages/Index.tsx
+new file mode 100644
+index 0000000..082b546
+--- /dev/null
++++ b/src/pages/Index.tsx
+@@ -0,0 +1,15 @@
++import Hero from "@/components/Hero";
++import Features from "@/components/Features";
++import CallToAction from "@/components/CallToAction";
++
++const Index = () => {
++  return (
++    <main className="min-h-screen bg-background">
++      <Hero />
++      <Features />
++      <CallToAction />
++    </main>
++  );
++};
++
++export default Index;
+diff --git a/tailwind.config.ts b/tailwind.config.ts
+new file mode 100644
+index 0000000..b28a83f
+--- /dev/null
++++ b/tailwind.config.ts
+@@ -0,0 +1,160 @@
++import type { Config } from "tailwindcss";
++
++export default {
++	darkMode: ["class"],
++	content: [
++		"./pages/**/*.{ts,tsx}",
++		"./components/**/*.{ts,tsx}",
++		"./app/**/*.{ts,tsx}",
++		"./src/**/*.{ts,tsx}",
++	],
++	prefix: "",
++	theme: {
++		container: {
++			center: true,
++			padding: '2rem',
++			screens: {
++				'2xl': '1400px'
++			}
++		},
++		extend: {
++			colors: {
++				border: 'hsl(var(--border))',
++				input: 'hsl(var(--input))',
++				ring: 'hsl(var(--ring))',
++				background: 'hsl(var(--background))',
++				foreground: 'hsl(var(--foreground))',
++				primary: {
++					DEFAULT: 'hsl(var(--primary))',
++					foreground: 'hsl(var(--primary-foreground))'
++				},
++				secondary: {
++					DEFAULT: 'hsl(var(--secondary))',
++					foreground: 'hsl(var(--secondary-foreground))'
++				},
++				destructive: {
++					DEFAULT: 'hsl(var(--destructive))',
++					foreground: 'hsl(var(--destructive-foreground))'
++				},
++				muted: {
++					DEFAULT: 'hsl(var(--muted))',
++					foreground: 'hsl(var(--muted-foreground))'
++				},
++				accent: {
++					DEFAULT: 'hsl(var(--accent))',
++					foreground: 'hsl(var(--accent-foreground))'
++				},
++				popover: {
++					DEFAULT: 'hsl(var(--popover))',
++					foreground: 'hsl(var(--popover-foreground))'
++				},
++				card: {
++					DEFAULT: 'hsl(var(--card))',
++					foreground: 'hsl(var(--card-foreground))'
++				},
++				sidebar: {
++					DEFAULT: 'hsl(var(--sidebar-background))',
++					foreground: 'hsl(var(--sidebar-foreground))',
++					primary: 'hsl(var(--sidebar-primary))',
++					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
++					accent: 'hsl(var(--sidebar-accent))',
++					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
++					border: 'hsl(var(--sidebar-border))',
++					ring: 'hsl(var(--sidebar-ring))'
++				},
++				'snap-yellow': 'hsl(var(--snap-yellow))',
++				'snap-yellow-light': 'hsl(var(--snap-yellow-light))',
++				'snap-blue': 'hsl(var(--snap-blue))',
++				'snap-white': 'hsl(var(--snap-white))',
++				'snap-black': 'hsl(var(--snap-black))',
++				'snap-gray': 'hsl(var(--snap-gray))'
++			},
++			backgroundImage: {
++				'hero-gradient': 'var(--gradient-hero)',
++				'card-gradient': 'var(--gradient-card)',
++				'accent-gradient': 'var(--gradient-accent)',
++				'glow-gradient': 'var(--gradient-glow)'
++			},
++			boxShadow: {
++				'glow': 'var(--shadow-glow)',
++				'blue-glow': 'var(--shadow-blue-glow)',
++				'card': 'var(--shadow-card)'
++			},
++			transitionTimingFunction: {
++				'smooth': 'var(--transition-smooth)',
++				'bounce': 'var(--transition-bounce)'
++			},
++			borderRadius: {
++				lg: 'var(--radius)',
++				md: 'calc(var(--radius) - 2px)',
++				sm: 'calc(var(--radius) - 4px)'
++			},
++			keyframes: {
++				'accordion-down': {
++					from: {
++						height: '0'
++					},
++					to: {
++						height: 'var(--radix-accordion-content-height)'
++					}
++				},
++				'accordion-up': {
++					from: {
++						height: 'var(--radix-accordion-content-height)'
++					},
++					to: {
++						height: '0'
++					}
++				},
++				'float': {
++					'0%, 100%': { transform: 'translateY(0px)' },
++					'50%': { transform: 'translateY(-10px)' }
++				},
++				'pulse-glow': {
++					'0%, 100%': { opacity: '1' },
++					'50%': { opacity: '0.5' }
++				},
++				'slide-up': {
++					'0%': { transform: 'translateY(20px)', opacity: '0' },
++					'100%': { transform: 'translateY(0)', opacity: '1' }
++				},
++				'bounce-in': {
++					'0%': { transform: 'scale(0.3)', opacity: '0' },
++					'50%': { transform: 'scale(1.05)' },
++					'70%': { transform: 'scale(0.9)' },
++					'100%': { transform: 'scale(1)', opacity: '1' }
++				},
++				'swipe-left': {
++					'0%': { transform: 'translateX(100px)', opacity: '0' },
++					'100%': { transform: 'translateX(0)', opacity: '1' }
++				},
++				'swipe-right': {
++					'0%': { transform: 'translateX(-100px)', opacity: '0' },
++					'100%': { transform: 'translateX(0)', opacity: '1' }
++				},
++				'wiggle': {
++					'0%, 100%': { transform: 'rotate(-3deg)' },
++					'50%': { transform: 'rotate(3deg)' }
++				},
++				'pop': {
++					'0%': { transform: 'scale(1)' },
++					'50%': { transform: 'scale(1.1)' },
++					'100%': { transform: 'scale(1)' }
++				}
++			},
++			animation: {
++				'accordion-down': 'accordion-down 0.2s ease-out',
++				'accordion-up': 'accordion-up 0.2s ease-out',
++				'float': 'float 3s ease-in-out infinite',
++				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
++				'slide-up': 'slide-up 0.6s ease-out',
++				'bounce-in': 'bounce-in 0.8s ease-out',
++				'swipe-left': 'swipe-left 0.5s ease-out',
++				'swipe-right': 'swipe-right 0.5s ease-out',
++				'wiggle': 'wiggle 1s ease-in-out infinite',
++				'pop': 'pop 0.3s ease-in-out'
++			}
++		}
++	},
++	plugins: [require("tailwindcss-animate")],
++} satisfies Config;
+-- 
+2.50.1
+

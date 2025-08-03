@@ -13,7 +13,7 @@ const Features = () => {
     {
       icon: Heart,
       title: "Vibe-Coded Curation",
-      description: "Handpicked games that respect your time and intelligence. No pay-to-win, no energy systems.",
+      description: "AI-curated games that respect your time and intelligence. No pay-to-win, no energy systems.",
       color: "text-game-coral",
       gradient: "from-game-coral/20 to-transparent"
     },

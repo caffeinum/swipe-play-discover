@@ -28,7 +28,12 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => window.open('https://rork-casual-game-flip.vercel.app/', '_blank')}
+              >
                 <Play className="w-5 h-5" />
                 Start Playing Now
               </Button>
@@ -64,6 +69,12 @@ const Hero = () => {
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-hero-gradient opacity-20"></div>
+              {/* Game controller icon overlay */}
+              <img 
+                src="/icon.png" 
+                alt="Game controller" 
+                className="absolute top-8 right-8 w-24 h-24 md:w-32 md:h-32 opacity-90 drop-shadow-2xl animate-float"
+              />
             </div>
             
             {/* Floating UI elements */}

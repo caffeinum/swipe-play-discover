@@ -37,7 +37,12 @@ const Hero = () => {
                 <Play className="w-5 h-5" />
                 Start Playing Now
               </Button>
-              <Button variant="glass" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="glass" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => window.open('https://expo.dev/preview/update?message=fix+app.json&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T02%3A30%3A49.037Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=9322057f-d2a9-4bbf-8452-5eb01e0329ac', '_blank')}
+              >
                 <Smartphone className="w-5 h-5" />
                 Get the App
               </Button>

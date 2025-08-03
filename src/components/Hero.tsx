@@ -41,7 +41,7 @@ const Hero = () => {
                 variant="glass" 
                 size="lg" 
                 className="text-lg px-8 py-6"
-                onClick={() => window.open('https://expo.dev/preview/update?message=Implement+in-container+game+playing+with+navigation+controls%0A%0A-+Games+now+play+within+the+same+container+instead+of+full+screen%0A&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T02%3A44%3A31.311Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=ec4e0996-616b-406b-b96e-947d2112d1e4', '_blank')}
+                onClick={() => window.open('https://expo.dev/preview/update?message=Make+game+submissions+instant+and+show+newest+games+first%0A%0A-+Games+now+added+directly+to+main+feed+without+review+process%0A-+User&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T03%3A01%3A04.928Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=1bbee07b-36ac-4adc-a775-4e0f6d12a7de', '_blank')}
               >
                 <Smartphone className="w-5 h-5" />
                 Get the App

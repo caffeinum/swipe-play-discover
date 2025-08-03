@@ -43,7 +43,7 @@ const CallToAction = () => {
               variant="glass" 
               size="lg" 
               className="text-xl px-12 py-8 bg-transparent hover:bg-white/10 border-white/30"
-              onClick={() => window.open('https://expo.dev/preview/update?message=fix+app.json&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T02%3A30%3A49.037Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=9322057f-d2a9-4bbf-8452-5eb01e0329ac', '_blank')}
+              onClick={() => window.open('https://expo.dev/preview/update?message=Implement+in-container+game+playing+with+navigation+controls%0A%0A-+Games+now+play+within+the+same+container+instead+of+full+screen%0A&updateRuntimeVersion=1.0.0&createdAt=2025-08-03T02%3A44%3A31.311Z&slug=exp&projectId=9ecffee8-084f-4291-b9ce-5da66fbc085a&group=ec4e0996-616b-406b-b96e-947d2112d1e4', '_blank')}
             >
               <Download className="w-6 h-6" />
               Download App

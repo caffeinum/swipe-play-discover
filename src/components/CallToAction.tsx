@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, Download, Smartphone } from "lucide-react";
+import QRCode from "./QRCode";
 
 const CallToAction = () => {
   return (
@@ -45,6 +46,17 @@ const CallToAction = () => {
               <Download className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
               GET APP
             </Button>
+          </div>
+          
+          {/* QR Code and URL section */}
+          <div className="mb-8 animate-fade-in delay-500">
+            <div className="flex flex-col items-center gap-4">
+              <QRCode />
+              <div className="text-snap-yellow font-mono text-sm sm:text-base break-all px-4">
+                exp://xcsjhbo-caffeinum-8082.exp.direct
+              </div>
+              <p className="text-snap-white/70 text-sm">scan qr code or use url to start playing! 🎮</p>
+            </div>
           </div>
           
           {/* Mobile-friendly badges */}

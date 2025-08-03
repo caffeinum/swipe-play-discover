@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Play, Download, Ghost } from "lucide-react";
+import qrCode1 from "@/assets/qr-code-1.jpg";
+import qrCode2 from "@/assets/qr-code-2.jpg";
 
 const Hero = () => {
   return (
@@ -72,6 +74,21 @@ const Hero = () => {
             <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-300 hover:animate-wiggle touch-manipulation">
               <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🧩</div>
               <div className="text-xs sm:text-sm font-bold text-snap-black">Strategy</div>
+            </div>
+          </div>
+
+          {/* Try these games QR codes */}
+          <div className="mt-12 sm:mt-16 animate-slide-up delay-600">
+            <h3 className="text-2xl sm:text-3xl font-black text-snap-black mb-6 drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
+              Try these games! 🎮
+            </h3>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <div className="bg-snap-white/90 backdrop-blur-sm p-4 rounded-2xl border-4 border-snap-black shadow-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src={qrCode1} alt="Game QR Code 1" className="w-48 h-48 sm:w-56 sm:h-56 object-contain" />
+              </div>
+              <div className="bg-snap-white/90 backdrop-blur-sm p-4 rounded-2xl border-4 border-snap-black shadow-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src={qrCode2} alt="Game QR Code 2" className="w-48 h-48 sm:w-56 sm:h-56 object-contain" />
+              </div>
             </div>
           </div>
         </div>

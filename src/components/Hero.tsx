@@ -26,17 +26,16 @@ const Hero = () => {
           
           {/* Main heading - More prominent text */}
           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 sm:mb-6 leading-tight animate-slide-up">
-            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Discover Great </span>
-            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Games</span>
-            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">,</span>
+            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Game </span>
+            <span className="text-snap-black drop-shadow-[0_4px_8px_rgba(255,255,255,0.8)]">Marketplace</span>
             <br />
-            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Fast</span>
+            <span className="text-snap-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">on Stellar</span>
           </h1>
           
           {/* More prominent description */}
           <p className="text-base sm:text-lg text-snap-black font-bold mb-8 sm:mb-12 max-w-2xl mx-auto animate-slide-up delay-200 px-4 leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
-            Swipe through instant-play games in seconds. No downloads, no ads, no friction. 
-            Just pure gameplay in a TikTok-style feed designed for gamers.
+            Discover and buy games instantly with Stellar tokens. Support indie developers directly 
+            while we take a small platform fee. No downloads, just pure gaming marketplace magic.
           </p>
           
           {/* Mobile-optimized buttons */}
@@ -57,23 +56,27 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Mobile-friendly game cards */}
+          {/* Mobile-friendly game marketplace categories */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto animate-swipe-right delay-500 px-4">
             <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float hover:animate-wiggle touch-manipulation">
               <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎮</div>
               <div className="text-xs sm:text-sm font-bold text-snap-black">Puzzle</div>
+              <div className="text-xs text-snap-black/70">2-5 XLM</div>
             </div>
             <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-75 hover:animate-wiggle touch-manipulation">
               <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🏃‍♂️</div>
               <div className="text-xs sm:text-sm font-bold text-snap-black">Runner</div>
+              <div className="text-xs text-snap-black/70">3-8 XLM</div>
             </div>
             <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-150 hover:animate-wiggle touch-manipulation">
               <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🎯</div>
               <div className="text-xs sm:text-sm font-bold text-snap-black">Arcade</div>
+              <div className="text-xs text-snap-black/70">1-4 XLM</div>
             </div>
             <div className="bg-snap-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-3 sm:border-4 border-snap-black shadow-lg animate-float delay-300 hover:animate-wiggle touch-manipulation">
               <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🧩</div>
               <div className="text-xs sm:text-sm font-bold text-snap-black">Strategy</div>
+              <div className="text-xs text-snap-black/70">5-15 XLM</div>
             </div>
           </div>
 

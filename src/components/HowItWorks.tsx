@@ -7,22 +7,22 @@ const HowItWorks = () => {
     {
       icon: MousePointer2,
       number: "01",
-      title: "Swipe to Discover",
-      description: "Browse through our curated feed of games. Each swipe reveals something new and exciting.",
+      title: "Browse Games",
+      description: "Discover indie games in our curated marketplace. Each game shows pricing and developer info.",
       color: "text-game-coral"
     },
     {
       icon: Play,
       number: "02", 
-      title: "Play Instantly",
-      description: "Tap to play immediately. No downloads, no waiting. Games load in milliseconds.",
+      title: "Pay with Stellar",
+      description: "Buy games instantly with Stellar (XLM) tokens. Fast, secure blockchain transactions.",
       color: "text-game-blue"
     },
     {
       icon: Heart,
       number: "03",
-      title: "Love or Leave",
-      description: "Found your vibe? Keep playing. Not feeling it? Swipe to the next adventure.",
+      title: "Support Developers",
+      description: "Your purchase goes directly to creators. We take a small 5% platform fee to keep things running.",
       color: "text-game-yellow"
     }
   ];
@@ -32,10 +32,10 @@ const HowItWorks = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6 bg-hero-gradient bg-clip-text text-transparent">
-            How It Works
+            How Our Marketplace Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Game discovery reimagined. Three simple steps to endless entertainment.
+            Blockchain-powered game marketplace. Three simple steps to support indie developers.
           </p>
         </div>
 

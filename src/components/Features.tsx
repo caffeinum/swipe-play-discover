@@ -1,19 +1,19 @@
 const Features = () => {
   const features = [
     {
-      emoji: "⚡",
-      title: "Instant Play",
-      description: "No downloads, pure fun!",
+      emoji: "⭐",
+      title: "Stellar Payments",
+      description: "Fast, secure token transactions",
     },
     {
-      emoji: "🎯", 
-      title: "Smart Picks",
-      description: "AI finds your vibe",
+      emoji: "🎮", 
+      title: "Game Marketplace",
+      description: "Buy games, support developers",
     },
     {
-      emoji: "📱",
-      title: "Mobile First", 
-      description: "Perfect touch controls",
+      emoji: "💰",
+      title: "Fair Platform Fees", 
+      description: "Small cuts, big value",
     }
   ];
 
@@ -28,10 +28,10 @@ const Features = () => {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-8 sm:mb-12 px-4">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black mb-3 sm:mb-4 text-snap-black animate-bounce-in">
-            Why Choose Us? 🤔
+            Why Stellar Gaming? 🚀
           </h2>
           <p className="text-lg sm:text-xl text-snap-black/70 font-bold animate-slide-up delay-200">
-            Because we're awesome, meow! 🐱✨
+            Blockchain-powered game marketplace with instant transactions! 💫
           </p>
         </div>
 
@@ -60,20 +60,20 @@ const Features = () => {
         {/* Mobile-optimized stats */}
         <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-3xl mx-auto px-4">
           <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-700 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
-            <div className="text-2xl sm:text-3xl font-black">1000+</div>
+            <div className="text-2xl sm:text-3xl font-black">500+</div>
             <div className="text-xs sm:text-sm font-bold">Games</div>
           </div>
           <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-800 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
-            <div className="text-2xl sm:text-3xl font-black">0s</div>
-            <div className="text-xs sm:text-sm font-bold">Wait Time</div>
+            <div className="text-2xl sm:text-3xl font-black">3s</div>
+            <div className="text-xs sm:text-sm font-bold">Payment</div>
           </div>
           <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-900 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
-            <div className="text-2xl sm:text-3xl font-black">100%</div>
-            <div className="text-xs sm:text-sm font-bold">Free</div>
+            <div className="text-2xl sm:text-3xl font-black">5%</div>
+            <div className="text-xs sm:text-sm font-bold">Platform Fee</div>
           </div>
           <div className="text-center bg-snap-black text-snap-yellow p-4 sm:p-6 rounded-2xl sm:rounded-3xl animate-bounce-in delay-1000 touch-manipulation hover:scale-105 active:scale-95 transition-transform">
-            <div className="text-2xl sm:text-3xl font-black">∞</div>
-            <div className="text-xs sm:text-sm font-bold">Fun</div>
+            <div className="text-2xl sm:text-3xl font-black">XLM</div>
+            <div className="text-xs sm:text-sm font-bold">Stellar Token</div>
           </div>
         </div>
       </div>

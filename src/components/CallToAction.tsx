@@ -21,13 +21,13 @@ const CallToAction = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 text-snap-white leading-tight animate-slide-up px-4">
-            Ready to Play?
+            Ready to Buy Games?
             <br />
-            <span className="text-snap-yellow">Let's Go! 🚀</span>
+            <span className="text-snap-yellow">Pay with Stellar! ⭐</span>
           </h2>
           
           <p className="text-lg sm:text-2xl text-snap-white/90 mb-8 sm:mb-12 font-bold animate-slide-up delay-200 px-4">
-            Join the fun, meow! No strings attached! 🐱💛
+            Join the blockchain gaming revolution! Fast payments, fair fees! 💫🚀
           </p>
           
           {/* Mobile-optimized action buttons */}
@@ -59,13 +59,13 @@ const CallToAction = () => {
           {/* Mobile-friendly badges */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-bounce-in delay-600 px-4">
             <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
-              <span className="text-snap-yellow font-bold text-sm sm:text-base">🎮 1000+ Games</span>
+              <span className="text-snap-yellow font-bold text-sm sm:text-base">🎮 500+ Games</span>
             </div>
             <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
-              <span className="text-snap-yellow font-bold text-sm sm:text-base">⚡ Instant Play</span>
+              <span className="text-snap-yellow font-bold text-sm sm:text-base">⭐ Stellar Blockchain</span>
             </div>
             <div className="bg-snap-yellow/20 backdrop-blur-sm border-2 border-snap-yellow rounded-full px-4 sm:px-6 py-2 sm:py-3 touch-manipulation">
-              <span className="text-snap-yellow font-bold text-sm sm:text-base">💛 No Ads</span>
+              <span className="text-snap-yellow font-bold text-sm sm:text-base">💰 Fair Fees</span>
             </div>
           </div>
         </div>

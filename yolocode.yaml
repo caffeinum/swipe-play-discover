@@ -1,0 +1,8 @@
+tmux:
+  session: dev
+  window: main
+
+services:
+  frontend:
+    command: bun run dev
+    port: 3000
